@@ -1,17 +1,17 @@
 
 
 var Classe = function() {
-	var $this = this;
 
 	this.getMetodos = function(propriedades) {
 		for(var prop in propriedades) {
 			(function(i) {
-				$this['get' + i] = function() {
+				this['get' + i] = function() {
 					return propriedades[i];
 				};
-			})(prop);
+			}.bind(this))(prop);
 		}
 	};
+
 };
 Classe.prototype.get = function(prop) {
 	if(this['get' + prop]) {

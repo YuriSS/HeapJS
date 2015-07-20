@@ -2,12 +2,11 @@ var Classe = require('./Classe');
 
 
 var Node = function(propriedades) {
-
 	this.getMetodos(propriedades);
 
 	this.printProp = function(callback) {
 		for(var i in propriedades) {
-			callback(i, propriedades[i]);
+			callback(i, this.get(i));
 		}
 	};
 
